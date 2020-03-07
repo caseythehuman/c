@@ -1,8 +1,4 @@
-// Ray, Casey 
-// Assignment Due Date and Lab Number: Mar 19 by 11:59pm, HW 2
-//Class Section: CS_116_25990SP20P, Thursday 1735-2200
-
-// Program to calculate a customer’s monthly bill. It should ask which package was purchased and how many hours were used.
+// Program to calculate a customerâ€™s monthly bill. It should ask which package was purchased and how many hours were used.
 
 
 #include <iostream>
