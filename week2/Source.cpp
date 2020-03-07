@@ -1,5 +1,5 @@
-// Using else if to assign a letter grade
-// Casey James Ray 
+// Program to calculate a customer’s monthly bill. It should ask which package was purchased and how many hours were used.
+// Casey Ray 
 // Date: 03/05/2020
 // HW2. 
 
@@ -8,37 +8,76 @@
 using namespace std;
 
     int main() {
-
-        //take these as input
-        int score1, score2, score3;
-
-        cout << "Enter your first score: " << endl;
-        cin >> score1;
-        cout << "Enter your second score: " << endl;
-        cin >> score2;
-        cout << "Enter your third score: " << endl;
-        cin >> score3;
         
+        //const
+        double 
+            priceA = 9.95, 
+            priceB = 14.95, 
+            priceC = 19.95, 
+            overageA = 2.00, 
+            overageB = 1.00, 
+            baseHoursA = 10, 
+            baseHoursB = 20,
+            totalCost,
+            price,
+            baseHours = 0,
+            overagePrice = 0,
+            overageMultiplier = 0;
 
-               
+        //userInput variables
+        double
+            hoursUsed;
+        char
+            charInputType;
 
-        int average = (score1 + score2 + score3) / 3;
+                
+        //input
+        //ask which package was purchased and how many hours were used.
 
-            if (average >= 60 && average < 70 ) {
-                cout << average << " - D " << endl;
-            }
-            else if (average >= 70 && average < 80){
-                cout << average << " - C" << endl;
-            }
-            else if (average >= 80 && average < 90 ) {
-                cout << average << " - B" << endl;
-            }
-            else if (average > 90) {
-                cout << average << " - A" << endl;
-            }
-            else {
-                cout << average << "You Failed!";
-            }  ;
+        cout << "Enter hours used: \n";
+        cin >> hoursUsed;
+        cout << "Enter plan type (A, B or C) as a single letter and press return.\n";
+        cin >> charInputType;
+
+        charInputType = toupper(charInputType);
+
+        switch (charInputType) {
+            
+            case 'A':
+                { price = priceA;
+                  overagePrice = overageA;
+                  baseHours = baseHoursA;  } break;
+            case 'B':
+                { price = priceB; 
+                  overagePrice = overageB; 
+                  baseHours = baseHoursB; } break;
+        
+            case 'C': 
+                { price = priceC;
+                  overagePrice = 0;
+                } break;
+            
+            default: cout << "You broke it. \n";
+
+        }
+
+
+
+        //math
+        //find hours used above base hours
+        overageMultiplier = hoursUsed - baseHours;
+        
+        //if they use less than their base, don't charge extra
+        if (overageMultiplier <= 0) { overageMultiplier = 0; };
+
+        //add subscription price to overage price
+        totalCost = price + (overageMultiplier * overagePrice);
+        
+        //output with formatting
+        cout << "Total: " << totalCost;
+
+
+
 
 
 
